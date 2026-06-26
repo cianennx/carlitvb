@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Per Carli</title>
-    
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300&display=swap" rel="stylesheet">
 
     <style>
@@ -18,82 +17,101 @@
             overflow-x: hidden; 
         }
 
-        /* Sfere di luce ambientale fioche */
-        .orb { position: fixed; border-radius: 50%; filter: blur(140px); opacity: 0.1; z-index: 0; animation: drift 20s infinite alternate ease-in-out; }
-        @keyframes drift { from { transform: translate(-50px, -50px); } to { transform: translate(50px, 50px); } }
-
-        /* Home View (Emoji Apple) */
+        /* Home View */
         #home-view { 
-            position: fixed; inset: 0; z-index: 10; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #050507; 
-            transition: all 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+            position: fixed; inset: 0; z-index: 10; display: flex; align-items: center; justify-content: center; 
+            background: #050507; transition: opacity 2s ease; cursor: pointer;
         }
-        .envelope-emoji { font-size: 8rem; cursor: pointer; transition: all 1.8s cubic-bezier(0.4, 0, 0.2, 1); }
-        .touch-hint { font-family: 'Inter', sans-serif; font-size: 0.8rem; letter-spacing: 4px; text-transform: uppercase; margin-top: 2rem; color: rgba(255,255,255,0.2); animation: pulse 2s infinite; }
-        @keyframes pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.8; } }
+        .open-btn { font-family: 'Inter', sans-serif; font-size: 0.8rem; letter-spacing: 6px; text-transform: uppercase; opacity: 0.4; }
 
         /* Letter View */
-        #letter-view { opacity: 0; transition: opacity 2s ease; padding: 25vh 8% 30vh 8%; max-width: 400px; margin: 0 auto; position: relative; z-index: 1; }
-        .text-block { margin-bottom: 12rem; opacity: 0; transform: translateY(40px); filter: blur(8px); transition: all 2.5s cubic-bezier(0.2, 1, 0.3, 1); }
+        #letter-view { opacity: 0; transition: opacity 2.5s ease; padding: 25vh 8% 30vh 8%; max-width: 400px; margin: 0 auto; position: relative; z-index: 1; }
+        
+        .text-block { margin-bottom: 15rem; opacity: 0; transform: translateY(40px); filter: blur(10px); transition: all 2.5s cubic-bezier(0.2, 1, 0.3, 1); }
         .text-block.visible { opacity: 1; transform: translateY(0); filter: blur(0); }
         
-        b { color: #fcebe8; font-weight: 500; text-shadow: 0 0 15px rgba(252, 235, 232, 0.2); }
+        /* Glow Signature */
+        .glow-sign { 
+            text-align: center; font-size: 3rem; margin-top: 10rem; 
+            color: #ff99c8; text-shadow: 0 0 20px rgba(255, 153, 200, 0.6);
+        }
     </style>
 </head>
 <body>
 
-    <div class="orb" style="width: 350px; height: 350px; top: 10%; left: -20%; background: #4a90e2;"></div>
-    <div class="orb" style="width: 300px; height: 300px; bottom: 10%; right: -15%; background: #f5a623;"></div>
-
-    <!-- HOME VIEW -->
+    <!-- HOME -->
     <div id="home-view">
-        <div class="envelope-emoji" id="letter-btn">💌</div>
-        <p class="touch-hint">tocca per leggere</p>
+        <div class="open-btn" id="openBtn">clicca per aprire</div>
     </div>
 
-    <!-- LETTER VIEW -->
+    <!-- LETTERA -->
     <div id="letter-view">
         <div class="text-block">
-            C’è un silenzio strano, qui stasera. È quel tipo di vuoto che ti entra nelle ossa e ti costringe a guardare in faccia tutto quello che solitamente sepelliamo sotto la frenesia del giorno. Mi viene naturale pensare a te. Non come si pensa a una persona qualsiasi, ma come si pensa a un <b>posto sicuro</b> dove sai di poter tornare quando il resto del mondo perde ogni senso.
+            C’è un silenzio strano, qui stasera.<br><br>
+            È quel tipo di vuoto che ti entra nelle ossa e ti costringe a guardare in faccia tutto quello che solitamente sepelliamo sotto la frenesia del giorno.
         </div>
 
         <div class="text-block">
-            Scrivo perché le parole, a volte, se sono troppe, soffocano. E io volevo che questa lettera respirasse. Voglio che tu la legga e che senta che, anche se non sono lì a tenerti la mano in questo preciso momento, il peso che senti addosso non lo stai portando da sola.
+            Mi viene naturale pensare a te. Non come si pensa a una persona qualsiasi, ma come si pensa a un posto sicuro dove sai di poter tornare quando il resto del mondo perde ogni senso.
         </div>
 
         <div class="text-block">
-            So che dentro la tua testa c’è una frequenza che gli altri non sentono. Un rumore di fondo, un’interferenza che ogni tanto diventa insopportabile e ti strappa via dalla realtà. So bene cosa succede quando esci da quei momenti, quando la stanchezza ti divora perché hai combattuto una guerra che nessuno vede, una guerra che si gioca tutta dentro di te. Ma io lo vedo, quel colore che provi a nascondere. Lo vedo anche quando sei convinta di esserti spenta del tutto. Non sei tu ad essere sbagliata; hai solo una <b>sensibilità</b> che il mondo non sa gestire.
+            Scrivo perché le parole, a volte, se sono troppe, soffocano.<br><br>
+            Voglio che tu senta che, anche se non sono lì a tenerti la mano in questo preciso momento, il peso che senti addosso non lo stai portando da sola.
         </div>
 
         <div class="text-block">
-            Ci sono giorni in cui la tua mente ti sussurra che sei un peso, che sei diventata solo il riflesso delle tue paure. Sono bugie. Le bugie più infide che esistano. Mi fa una rabbia terribile pensare che tu debba combattere contro te stessa quando meriteresti solo di camminare a testa alta. Vedo una persona che, nonostante il terreno le tremi sotto i piedi, continua a guardare dritto avanti. E per me questa è la forma più alta di <b>coraggio</b>.
+            So che dentro la tua testa c’è una frequenza che gli altri non sentono. Un rumore di fondo che ogni tanto diventa insopportabile e ti strappa via dalla realtà.
         </div>
 
         <div class="text-block">
-            Tra noi c’è una connessione che mi sembra solidissima. È quella sensazione rara di aver trovato qualcuno che sa esattamente dove ti fa male e sa come toccare quel punto senza farti sentire invasa. Mi sento visto da te, compreso nelle parti più strane e disordinate di me. Aver trovato qualcuno con cui poter fermare il tempo è la cosa più <b>preziosa</b> che mi sia capitata.
+            So bene cosa succede quando esci da quei momenti, quando la stanchezza ti divora perché hai combattuto una guerra che si gioca tutta dentro di te.
         </div>
 
         <div class="text-block">
-            Quando qualcuno inizia a contare davvero, tutto cambia. Sto imparando che le persone non sono ovvie, che bisogna prendersi cura di ciò che si ha, giorno dopo giorno. La tua presenza è un dono, non un diritto. Sto cercando di attraversare questo caos insieme a te. Non ti prometto che domani sarà tutto rose e fiori, ma ti prometto che se il male se ne andrà partiremo insieme, e se il male tornerà, torneremo insieme. Io resto qui, finché non troviamo la porta.
+            Ma non pensare mai, neanche per un secondo, che questo ti renda meno di quello che sei. Non sei tu ad essere sbagliata; hai solo una sensibilità che il mondo non sa gestire.
         </div>
 
         <div class="text-block">
-            Mi manca il modo in cui mi guardi quando riesci a staccare un attimo da te stessa. Mi manca quel pezzo di mondo che siamo quando siamo soli. Ho bisogno di averti vicino. Ci tengo troppo, basta. Vorrei solo poter essere lì al tuo fianco per dirti tutte queste cose a voce, per smettere di scriverle e iniziare finalmente a viverle. Sei la persona più speciale che conosca. Sei forte, sei vera, sei tu.
+            Ci sono giorni in cui la tua mente ti sussurra che sei un peso, che sei diventata solo il riflesso delle tue paure. Sono bugie. Mi fa una rabbia terribile pensare che tu debba combattere contro te stessa.
         </div>
 
         <div class="text-block">
-            Ti voglio <b>tanto bene</b>, ma proprio tanto tanto. Non dimenticarlo mai, soprattutto nei giorni in cui te lo dimentichi da sola. Io sono qui, non vado da nessuna parte. Aspetto solo il momento in cui potremo smettere di preoccuparci e iniziare finalmente a respirare. Per sempre tuo, <b>Niccolò</b>.
+            Vedo una persona che, nonostante il terreno le tremi sotto i piedi, continua a guardare dritto avanti. E per me questa è la forma più alta di coraggio.
+        </div>
+
+        <div class="text-block">
+            Tra noi c’è una connessione che mi sembra solidissima. È quella sensazione rara di aver trovato qualcuno che sa esattamente dove ti fa male e sa come toccare quel punto senza farti sentire invasa.
+        </div>
+
+        <div class="text-block">
+            Aver trovato qualcuno con cui poter fermare il tempo è la cosa più preziosa che mi sia capitata. Sto cercando di attraversare questo caos insieme a te. Non ti prometto che domani sarà tutto rose e fiori.
+        </div>
+
+        <div class="text-block">
+            Ti prometto, invece, che se il male se ne andrà partiremo insieme, e se il male tornerà, torneremo insieme. Io resto qui, finché non troviamo la porta.
+        </div>
+
+        <div class="text-block">
+            Ho bisogno di averti vicino. Vorrei solo poter essere lì al tuo fianco per dirti tutte queste cose a voce, per smettere di scriverle e iniziare finalmente a viverle.
+        </div>
+
+        <div class="text-block">
+            Sei la persona più speciale che conosca. Sei forte, sei vera, sei tu. Io sono qui, non vado da nessuna parte. Aspetto solo il momento in cui potremo smettere di preoccuparci e iniziare finalmente a respirare.
+        </div>
+
+        <div class="text-block glow-sign">
+            Per sempre tuo,<br>Niccolò
         </div>
     </div>
 
     <script>
         const home = document.getElementById('home-view');
         const letter = document.getElementById('letter-view');
-        const btn = document.getElementById('letter-btn');
+        const btn = document.getElementById('openBtn');
 
         btn.onclick = () => {
-            btn.style.transform = "scale(50)";
-            btn.style.opacity = "0";
-            home.style.background = "transparent";
+            home.style.opacity = "0";
             setTimeout(() => {
                 home.style.display = "none";
                 letter.style.opacity = "1";
